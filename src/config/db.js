@@ -34,3 +34,18 @@ export const connectDB = () => {
     });
   });
 };
+
+db.connect((err) => {
+  if (err) {
+    console.error('DB connect failed (full):', err);
+    console.error('DB connect failed (message):', err?.message);
+    console.error('DB connect failed (code):', err?.code);
+    console.error('DB connect failed (errno):', err?.errno);
+    console.error('DB connect failed (sqlState):', err?.sqlState);
+    console.error('DB connect failed (fatal):', err?.fatal);
+    reject(err);
+  } else {
+    console.log('MySQL connected ✅');
+    resolve();
+  }
+});
